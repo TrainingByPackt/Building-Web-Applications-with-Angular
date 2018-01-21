@@ -2,11 +2,11 @@ System.config({
     map : {
         'app': 'app',
         'rxjs': 'https://unpkg.com/rxjs@5.0.0-beta.12',
-        '@angular/common': 'https://unpkg.com/@angular/common@2.0.0',
-        '@angular/compiler': 'https://unpkg.com/@angular/compiler@2.0.0',
-        '@angular/core': 'https://unpkg.com/@angular/core@2.0.0',
-        '@angular/platform-browser': 'https://unpkg.com/@angular/platform-browser@2.0.0',
-        '@angular/platform-browser-dynamic': 'https://unpkg.com/@angular/platform-browser-dynamic@2.0.0'
+        '@angular/common': 'https://unpkg.com/@angular/common@4.4.6',
+        '@angular/compiler': 'https://unpkg.com/@angular/compiler@4.4.6',
+        '@angular/core': 'https://unpkg.com/@angular/core@4.4.6',
+        '@angular/platform-browser': 'https://unpkg.com/@angular/platform-browser@4.4.6',
+        '@angular/platform-browser-dynamic': 'https://unpkg.com/@angular/platform-browser-dynamic@4.4.6'
     },
     packages:{
         'app':  { main: 'main.ts',  defaultExtension: 'ts' },
