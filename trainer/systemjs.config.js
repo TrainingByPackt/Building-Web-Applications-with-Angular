@@ -21,11 +21,7 @@
     'common',
     'compiler',
     'core',
-<<<<<<< HEAD
     'forms',  
-=======
-    'forms',
->>>>>>> 0042aae... updated modal package, package.js and systemJS config
     'http',
     'platform-browser',
     'platform-browser-dynamic',
