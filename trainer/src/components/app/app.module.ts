@@ -11,8 +11,8 @@ import { FinishModule } from '../finish/finish.module';
 import { ServicesModule } from '../../services/services.module';
 import { WorkoutHistoryModule } from '../workout-history/workout-history.module';
 
-import { ModalModule } from 'angular2-modal';
-import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+import { ModalModule } from 'ngx-modialog';
+import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 
 import {routing} from './app.routes';
 
