@@ -1,7 +1,7 @@
 import {Component, Input, Injector} from '@angular/core';
 import {SafeResourceUrl} from '@angular/platform-browser';
-import { Modal } from 'angular2-modal/plugins/bootstrap';
-import { overlayConfigFactory } from 'angular2-modal'
+import { Modal } from 'ngx-modialog/plugins/bootstrap';
+import { overlayConfigFactory } from 'ngx-modialog'
 import {VideoDialogComponent, VideoDialogContext} from './video-dialog.component';
 
 @Component({
