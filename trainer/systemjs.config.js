@@ -6,7 +6,9 @@
     'rxjs': 'node_modules/rxjs',
     '@angular':                   'node_modules/@angular',
     'ngx-modialog':             'node_modules/ngx-modialog/bundle',
-    'ngx-modialog/plugins/bootstrap': 'node_modules/ngx-modialog/plugins/bootstrap/bundle'
+    'ngx-modialog/plugins/bootstrap': 'node_modules/ngx-modialog/plugins/bootstrap/bundle',
+    'tslib': 'node_modules/tslib/tslib.js',
+    '@angular/common/http': 'node_modules/@angular/common/bundles/common-http.umd.js'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -21,8 +23,7 @@
     'common',
     'compiler',
     'core',
-    'forms',  
-    'http',
+    'forms',
     'platform-browser',
     'platform-browser-dynamic',
     'testing',
