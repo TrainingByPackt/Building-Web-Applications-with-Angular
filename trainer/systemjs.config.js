@@ -4,23 +4,30 @@
   var map = {
     'app': 'dist', // 'dist',
     'rxjs': 'node_modules/rxjs',
-    '@angular': 'node_modules/@angular'
+    '@angular':                   'node_modules/@angular',
+    'ngx-modialog':             'node_modules/ngx-modialog/bundle',
+    'ngx-modialog/plugins/bootstrap': 'node_modules/ngx-modialog/plugins/bootstrap/bundle',
+    'tslib': 'node_modules/tslib/tslib.js',
+    '@angular/common/http': 'node_modules/@angular/common/bundles/common-http.umd.js'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app': { main: 'bootstrap.js', defaultExtension: 'js' },
-    'rxjs': { defaultExtension: 'js' }
+    'rxjs': { defaultExtension: 'js' },
+    'ngx-modialog': {main: 'ngx-modialog.rollup.umd.min.js', defaultExtension: 'js'},
+    'ngx-modialog/plugins/bootstrap': {main: 'ngx-modialog-bootstrap.rollup.umd.min.js', defaultExtension: 'js'}
   };
 
   var ngPackageNames = [
     'common',
     'compiler',
     'core',
-    'http',
+    'forms',
     'platform-browser',
     'platform-browser-dynamic',
-    'testing'
+    'testing',
+    'router'
   ];
 
   // Individual files (~300 requests):
