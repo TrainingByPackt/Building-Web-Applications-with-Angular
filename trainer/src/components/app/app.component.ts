@@ -1,5 +1,4 @@
 import {Component, ViewContainerRef} from '@angular/core';
-import { Overlay } from 'ngx-modialog';
 
 import {WorkoutHistoryComponent} from '../workout-history/workout-history.component';
 
@@ -15,7 +14,4 @@ import {WorkoutHistoryComponent} from '../workout-history/workout-history.compon
              </div>`
 })
 export class TrainerAppComponent {
-  constructor(overlay: Overlay, viewContainer: ViewContainerRef) {
-    overlay.defaultViewContainer = viewContainer;
-  }
 }
