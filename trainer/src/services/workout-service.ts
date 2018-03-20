@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -15,18 +15,16 @@ export class WorkoutService {
     apiKey = '9xfTWt1ilKhqIqzV9Z_8jvCzo5ksjexx';
     params = '?apiKey=' + this.apiKey;
 
-    constructor(public http: Http) {
+    constructor(public http: HttpClient) {
     }
 
     getExercises(){
         return this.http.get(this.collectionsUrl + '/exercises' + this.params)
-            .map((res: Response) => <Exercise[]>res.json())
             .catch(WorkoutService.handleError);
     }
 
     getExercise(exerciseName: string){
         return this.http.get(this.collectionsUrl + '/exercises/'+ exerciseName  + this.params)
-            .map((res: Response) => <Exercise>res.json())
             .catch(WorkoutService.handleError);
     }
 
@@ -58,13 +56,11 @@ export class WorkoutService {
 
     getWorkouts(){
         return this.http.get(this.collectionsUrl + '/workouts' + this.params)
-            .map((res:Response) => <WorkoutPlan[]>res.json())
             .catch(WorkoutService.handleError);
     }
 
     getWorkout(workoutName: string){
         return this.http.get(this.collectionsUrl + '/workouts/'+ workoutName  + this.params)
-            .map((res: Response) => <WorkoutPlan>res.json())
             .catch(WorkoutService.handleError);
     }
 
