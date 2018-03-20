@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -17,18 +17,16 @@ export class WorkoutService {
     apiKey = '9xfTWt1ilKhqIqzV9Z_8jvCzo5ksjexx';
     params = '?apiKey=' + this.apiKey;
 
-    constructor(public http: Http) {
+    constructor(public http: HttpClient) {
     }
 
     getExercises(){
         return this.http.get(this.collectionsUrl + '/exercises' + this.params)
-            .map((res: Response) => <Exercise[]>res.json())
             .catch(WorkoutService.handleError);
     }
 
     getExercise(exerciseName: string){
-        return this.http.get(this.collectionsUrl + '/exercises/' + exerciseName  + this.params)
-            .map((res: Response) => <Exercise>res.json())
+        return this.http.get(this.collectionsUrl + '/exercises/'+ exerciseName  + this.params)
             .catch(WorkoutService.handleError);
     }
 
@@ -60,7 +58,6 @@ export class WorkoutService {
 
     getWorkouts(){
         return this.http.get(this.collectionsUrl + '/workouts' + this.params)
-            .map((res:Response) => <WorkoutPlan[]>res.json())
             .map((workouts:Array<any>) => {
                 let result:Array<WorkoutPlan> = [];
                 if (workouts) {
@@ -82,8 +79,8 @@ export class WorkoutService {
 
     getWorkout(workoutName:string) {
         return Observable.forkJoin(
-            this.http.get(this.collectionsUrl + '/exercises' + this.params).map((res:Response) => <Exercise[]>res.json()),
-            this.http.get(this.collectionsUrl + '/workouts/' + workoutName + this.params).map((res:Response) => <WorkoutPlan>res.json())
+            this.http.get(this.collectionsUrl + '/exercises' + this.params),
+            this.http.get(this.collectionsUrl + '/workouts/' + workoutName + this.params)
         ).map(
             (data:any) => {
                 let allExercises = data[0];
