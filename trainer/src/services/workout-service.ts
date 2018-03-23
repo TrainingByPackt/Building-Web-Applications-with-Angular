@@ -31,18 +31,40 @@ export class WorkoutService {
     }
 
     updateExercise(exercise: Exercise){
-        for (var i = 0; i < this.exercises.length; i++) {
-            if (this.exercises[i].name === exercise.name) {
-                this.exercises[i] = exercise;
-            }
-        }
-        return exercise;
+        let body = {
+          "_id": exercise.name,
+          "name": exercise.name,
+          "title": exercise.title,
+          "description": exercise.description,
+          "image": exercise.image,
+          "nameSound": exercise.nameSound,
+          "procedure": exercise.procedure,
+          "videos": exercise.videos,
+      };
+
+      return this.http.put(this.collectionsUrl + '/exercises/' + exercise.name + this.params, body)
+          .catch(WorkoutService.handleError);
+        
     }
 
     addExercise(exercise: Exercise){
+        console.log('exercise', exercise)
         if (exercise.name) {
             this.exercises.push(exercise);
-            return exercise;
+
+            let body = {
+                "_id": exercise.name,
+                "name": exercise.name,
+                "title": exercise.title,
+                "description": exercise.description,
+                "image": exercise.image,
+                "nameSound": exercise.nameSound,
+                "procedure": exercise.procedure,
+                "videos": exercise.videos,
+            };
+    
+            return this.http.post(this.collectionsUrl + '/exercises' + this.params, body)
+                .catch(WorkoutService.handleError)
         }
     }
 
@@ -120,7 +142,6 @@ export class WorkoutService {
         };
 
         return this.http.post(this.collectionsUrl + '/workouts' + this.params, body)
-            .map((res:Response) => res.json())
             .catch(WorkoutService.handleError)
     }
 
@@ -142,13 +163,11 @@ export class WorkoutService {
         };
 
         return this.http.put(this.collectionsUrl + '/workouts/' + workout.name + this.params, body)
-            .map((res:Response) => res.json())
             .catch(WorkoutService.handleError);
     }
 
     deleteWorkout(workoutName:string) {
         return this.http.delete(this.collectionsUrl + '/workouts/' + workoutName + this.params)
-            .map((res:Response) => res.json())
             .catch(WorkoutService.handleError)
     }
 
