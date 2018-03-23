@@ -22,11 +22,15 @@ export class ExerciseBuilderService {
     }
 
     save(){
-        let exercise = this.newExercise ?
+        let exerciseObservable = this.newExercise ?
             this.workoutService.addExercise(this.buildingExercise) :
             this.workoutService.updateExercise(this.buildingExercise);
-        this.newExercise = false;
-        return exercise;
+        exerciseObservable.subscribe(
+            exercise => {
+                this.newExercise = false;
+                return exercise;
+            }
+        )
     }
 
     delete(){
